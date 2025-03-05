@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-import { Command } from 'commander';
+import { program } from 'commander';
 import { commit } from '../src/commit.js';
-
-const program = new Command();
+import { config } from '../src/config.js';
+import { init } from '../src/init.js';
 
 program
   .name('gitllama')
-  .description('A CLI tool that uses AI to generate git commit messages based on your changes.')
-  .version('0.2.0');
+  .description('CLI tool for generating commit messages using AI and managing GitHub repos.')
+  .version('0.3.0');
 
 program
   .command('commit')
@@ -28,4 +28,18 @@ program
     }
   });
 
-program.parse(process.argv);
+program
+  .command('config')
+  .description('Configure GitHub credentials via OAuth device flow')
+  .action(async () => {
+    await config();
+  });
+
+program
+  .command('init <repoName>')
+  .description('Initialize a new project from the genesis repository')
+  .action(async (repoName) => {
+    await init(repoName);
+  });
+
+program.parse();
