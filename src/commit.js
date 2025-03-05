@@ -79,22 +79,17 @@ export async function commit({ autoStage = false, push = false, simulate = false
     return;
   }
 
-  // If autoStage flag is set, perform commit automatically
-  if (autoStage) {
-    const commitSpinner = ora('Creating git commit...').start();
-    try {
-      await commitChanges(commitMessage);
-      commitSpinner.succeed('Git commit created.');
-    } catch (err) {
-      commitSpinner.fail('Failed to create git commit.');
-      throw err;
-    }
-  } else {
-    console.log(chalk.yellow('Auto staging not enabled. Please stage your changes manually and use the commit message above.'));
+  const commitSpinner = ora('Creating git commit...').start();
+  try {
+    await commitChanges(commitMessage);
+    commitSpinner.succeed('Git commit created.');
+  } catch (err) {
+    commitSpinner.fail('Failed to create git commit.');
+    throw err;
   }
 
   // If push flag is set, push changes
-  if (push && autoStage) {
+  if (push) {
     const pushSpinner = ora('Pushing changes to remote...').start();
     try {
       await pushChanges();
@@ -103,8 +98,6 @@ export async function commit({ autoStage = false, push = false, simulate = false
       pushSpinner.fail('Failed to push changes to remote.');
       throw err;
     }
-  } else if (push && !autoStage) {
-    console.log(chalk.red('Push flag requires auto staging (-y) to be enabled. Skipping push.'));
   }
 
   const overallDuration = performance.now() - overallStart;
