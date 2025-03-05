@@ -1,6 +1,6 @@
 <div align="center">
 <h1 align="center">gitllama</h1>
-<img src="assets/gitllama-logo.png" alt="gitllama-logo" />
+<img src="https://github.com/brngdsn/gitllama/blob/main/assets/gitllama-logo.png" alt="gitllama-logo" />
 <h3>A CLI Tool to Generate Git Commit Messages with AI</h3>
 
 <p align="center">
@@ -21,7 +21,8 @@
 
 ---
 
-📖 **About the Project**  
+📖 **About the Project**
+
 `gitllama` is a powerful command-line interface tool designed to leverage artificial intelligence for generating meaningful git commit messages based on your current changes. This tool streamlines the workflow of developers, allowing for clear and concise documentation of commits with minimal effort.
 
 🎯 **Features**
@@ -85,6 +86,7 @@
 ```
 
 📜 **License & Credits**  
+
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information. Contributions are welcome, and please adhere to the code of conduct in your interactions and submissions.
 
 ---
