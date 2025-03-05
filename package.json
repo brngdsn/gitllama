@@ -1,7 +1,7 @@
 {
   "name": "@brngdsn/gitllama",
-  "version": "0.2.0",
-  "description": "A CLI tool that uses AI to generate git commit messages based on your changes.",
+  "version": "0.3.0",
+  "description": "AI-powered git commits, PRs, and other useful things.",
   "main": "src/index.js",
   "bin": {
     "gitllama": "bin/gitllama.js"
@@ -17,7 +17,10 @@
     "ora": "^6.1.2",
     "ollama": "^0.5.14",
     "js-tiktoken": "^1.0.0",
-    "commander": "^10.0.0"
+    "commander": "^10.0.0",
+    "@octokit/rest": "^19.0.0",
+    "keytar": "^7.9.0",
+    "@octokit/auth-oauth-device": "^2.0.0"
   },
   "type": "module"
 }
